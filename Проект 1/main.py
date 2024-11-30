@@ -23,6 +23,11 @@ def main():
 
     calculate_and_display_average_price(stock_data)
 
+    threshold = int(input())
+    notify_if_strong_fluctuations(stock_data, threshold)
+
+
+
 
 
 if __name__ == "__main__":
