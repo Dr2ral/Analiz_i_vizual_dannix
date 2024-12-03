@@ -27,6 +27,9 @@ def main():
     notify_if_strong_fluctuations(stock_data, threshold)
 
 
+    export_data_to_csv(stock_data, 'df.csv')
+
+
 
 
 

@@ -1,4 +1,6 @@
 import yfinance as yf
+import csv
+import pandas as pd
 
 
 def fetch_stock_data(ticker, period='1mo'):
@@ -22,3 +24,7 @@ def notify_if_strong_fluctuations(data, threshold=2):
     if res_percent > threshold:
         print(f'Цена акции колеблется более чем {threshold}%')
 
+def export_data_to_csv(data, filename):
+    df = pd.DataFrame(data)
+    df.to_csv(filename)
+    #return data.to_csv(filename) - можно же и так написать?
