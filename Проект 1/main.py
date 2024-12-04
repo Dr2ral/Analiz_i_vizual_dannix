@@ -21,13 +21,16 @@ def main():
     # Plot the data
     dplt.create_and_save_plot(stock_data, ticker, period)
 
+    # Вычисляет среднее значение 'Close' и выводит в консоль
     calculate_and_display_average_price(stock_data)
 
+    # Выводит в консоль уведомление о сильных колебаниях
     threshold = int(input())
     notify_if_strong_fluctuations(stock_data, threshold)
 
-
-    export_data_to_csv(stock_data, 'df.csv')
+    # Экспортирует данные в файл в CSV формате
+    filename = 'df.csv'
+    export_data_to_csv(stock_data, filename)
 
 
 
