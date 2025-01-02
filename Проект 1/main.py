@@ -18,6 +18,9 @@ def main():
     # Add moving average to the data
     stock_data = dd.add_moving_average(stock_data)
 
+    #Добавление RSI
+    rsi(stock_data, 14)
+
     # Plot the data
     dplt.create_and_save_plot(stock_data, ticker, period)
 
