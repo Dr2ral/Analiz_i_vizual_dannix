@@ -3,7 +3,7 @@ import pandas as pd
 
 
 
-def create_and_save_plot(data, ticker, period, filename=None):
+def create_and_save_plot(data, ticker, period, start_date, end_date, filename=None):
     plt.figure(figsize=(10, 6))
 
 
@@ -14,13 +14,13 @@ def create_and_save_plot(data, ticker, period, filename=None):
             plt.plot(dates, data['RSI'].values, label='RSI_14')
             plt.plot(dates, data['Close'].values, label='Close Price')
             plt.plot(dates, data['Moving_Average'].values, label='Moving Average')
-            #plt.plot(dates, data['RSI'].values, label='RSI')
         else:
             print("Информация о дате отсутствует или не имеет распознаваемого формата.")
             return
     else:
         if not pd.api.types.is_datetime64_any_dtype(data['Date']):
             data['Date'] = pd.to_datetime(data['Date'])
+        plt.plot(data['Date'], data['RSI'].values, label='RSI_14')
         plt.plot(data['Date'], data['Close'], label='Close Price')
         plt.plot(data['Date'], data['Moving_Average'], label='Moving Average')
 
@@ -30,7 +30,7 @@ def create_and_save_plot(data, ticker, period, filename=None):
     plt.legend()
 
     if filename is None:
-        filename = f"{ticker}_{period}_stock_price_chart.png"
+        filename = f"{ticker}_{period}_{start_date}-{end_date}_stock_price_chart.png"
 
     plt.savefig(filename)
     print(f"График сохранен как {filename}")

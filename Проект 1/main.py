@@ -11,9 +11,11 @@ def main():
 
     ticker = input("Введите тикер акции (например, «AAPL» для Apple Inc):»")
     period = input("Введите период для данных (например, '1mo' для одного месяца): ")
+    start_date = input('Введите начальную дату:')
+    end_date = input('Введите конечную дату:')
 
     # Fetch stock data
-    stock_data = dd.fetch_stock_data(ticker, period)
+    stock_data = dd.fetch_stock_data(ticker, period, start_date, end_date)
 
     # Add moving average to the data
     stock_data = dd.add_moving_average(stock_data)
@@ -22,7 +24,7 @@ def main():
     rsi(stock_data, 14)
 
     # Plot the data
-    dplt.create_and_save_plot(stock_data, ticker, period)
+    dplt.create_and_save_plot(stock_data, ticker, period, start_date, end_date)
 
     # Вычисляет среднее значение 'Close' и выводит в консоль
     calculate_and_display_average_price(stock_data)
