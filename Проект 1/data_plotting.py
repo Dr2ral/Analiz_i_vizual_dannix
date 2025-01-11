@@ -9,9 +9,7 @@ def create_and_save_plot(data, ticker, period, start_date, end_date, style_param
 
     if style_param:
         plt.style.use(style_param)
-    else:
-        plt.style.use('classic')
-
+        
     if 'Date' not in data:
         if pd.api.types.is_datetime64_any_dtype(data.index):
             dates = data.index.to_numpy()
