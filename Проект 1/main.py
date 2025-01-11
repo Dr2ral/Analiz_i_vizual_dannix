@@ -11,8 +11,9 @@ def main():
 
     ticker = input("Введите тикер акции (например, «AAPL» для Apple Inc):»")
     period = input("Введите период для данных (например, '1mo' для одного месяца): ")
-    start_date = input('Введите начальную дату:')
-    end_date = input('Введите конечную дату:')
+    start_date = input('Введите начальную дату (например гггг-мм-дд):')
+    end_date = input('Введите конечную дату (например гггг-мм-дд):')
+    style_param = input('Введите название стиля (например (classic, ggplot):')
 
     # Fetch stock data
     stock_data = dd.fetch_stock_data(ticker, period, start_date, end_date)
@@ -24,7 +25,7 @@ def main():
     rsi(stock_data, 14)
 
     # Plot the data
-    dplt.create_and_save_plot(stock_data, ticker, period, start_date, end_date)
+    dplt.create_and_save_plot(stock_data, ticker, period, start_date, end_date, style_param)
 
     # Вычисляет среднее значение 'Close' и выводит в консоль
     calculate_and_display_average_price(stock_data)
@@ -36,6 +37,11 @@ def main():
     # Экспортирует данные в файл в CSV формате
     filename = 'df.csv'
     export_data_to_csv(stock_data, filename)
+
+
+
+
+
 
 
 
