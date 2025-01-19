@@ -24,6 +24,9 @@ def main():
     #Добавление RSI
     rsi(stock_data, 14)
 
+    # Реализация функции статистического индикатора (стандартного отклонения цены закрытия)
+    std_dev(stock_data)
+
     # Plot the data
     dplt.create_and_save_plot(stock_data, ticker, period, start_date, end_date, style_param)
 

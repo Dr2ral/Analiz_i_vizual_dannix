@@ -18,6 +18,11 @@ def add_moving_average(data, window_size=5):
     data['Moving_Average'] = data['Close'].rolling(window=window_size).mean()
     return data
 
+def std_dev(data, window_size=5):
+    data['STD'] = data['Close'].rolling(window=window_size, closed='left').std()
+
+    return data
+
 
 def calculate_and_display_average_price(data):
     """Вычисляет и выводит среднюю цену закрытия акций за заданный период."""
@@ -62,7 +67,6 @@ def rsi(data, periods=14, ema=True):
     rsi = 100 - (100 / (1 + rs))
     data['RSI'] = rsi
     return data
-
 
 
 
