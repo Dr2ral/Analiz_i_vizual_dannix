@@ -29,6 +29,7 @@ def main():
 
     # Plot the data
     dplt.create_and_save_plot(stock_data, ticker, period, start_date, end_date, style_param)
+    dplt.creat_interactive_plot(stock_data)
 
     # Вычисляет среднее значение 'Close' и выводит в консоль
     calculate_and_display_average_price(stock_data)

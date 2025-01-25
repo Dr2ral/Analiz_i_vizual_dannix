@@ -1,5 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import plotly
+import plotly.express as px
 
 
 
@@ -39,5 +41,9 @@ def create_and_save_plot(data, ticker, period, start_date, end_date, style_param
     plt.savefig(filename)
     print(f"График сохранен как {filename}")
 
-
+def creat_interactive_plot(data):
+    dates = data.index.to_numpy()
+    fig = px.bar(data, x=dates, y='Moving_Average', title='Moving average of Close')
+    fig.show()
+    return data
 
